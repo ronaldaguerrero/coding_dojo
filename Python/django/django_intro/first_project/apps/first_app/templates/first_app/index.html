@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h2>Hello World</h2>
+    <h1>Info From Server:</h1>
+    <p>Name: {{name}}</p>
+    <p>Color: {{favorite_color}}</p>
+    <p>Pets</p>
+    <ul>
+        {% for pet in pets %}
+        <li>{{pet}}</li>
+        {% endfor %}
+    </ul>
+    <form action="/submit_form" method="POST">
+        {% csrf_token %}
+        <p>Field One: <input name="one" type="text"></p>
+        <p>Field Two: <input name="two" type="text"></p>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p>This is your answer for one: {{ request.session.one }}</p>
+</body>
+</html>

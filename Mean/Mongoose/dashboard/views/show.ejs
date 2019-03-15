@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= dog.name %></title>
+</head>
+<body>
+	<p>Name: <%= dog.name %> | Breed: <%= dog.breed %> | <a href="/dogs/edit/<%=dog._id%>">Edit</a></p>
+
+	<a href="/dogs/new">Add a Dog</a>
+	<form action="/dogs/destroy/<%=dog._id%>" method="post">
+            <input type="submit" value="Delete">
+        </form>       
+</body>
+</html>

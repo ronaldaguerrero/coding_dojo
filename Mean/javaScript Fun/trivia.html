@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trivia</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+	  		$("button").click(function(){
+				for(var i=0; i < 5; i ++){
+					document.getElementById("q"+i).innerHTML=question[i];
+					console.log("q"+i);
+					document.getElementById("rA"+i).innerHTML=rAnswer[i];
+					document.getElementById("wA1"+i).innerHTML=wAnswer1[i];
+					document.getElementById("wA2"+i).innerHTML=wAnswer2[i];
+					document.getElementById("wA3"+i).innerHTML=wAnswer3[i];
+				}
+			});
+		});
+	</script>
+
+	<script>
+	var question = [];
+	var rAnswer = [];
+	var wAnswer1 = [];
+	var wAnswer2 = [];
+	var wAnswer3 = [];
+	$.get("https://opentdb.com/api.php?amount=10&category=16&difficulty=easy&type=multiple", display)
+	  function display(data){
+	  	for(var i=0; i < 5; i ++){
+		  	question.push(data.results[i].question);
+		  	rAnswer.push(data.results[i].correct_answer);
+		  	wAnswer1.push(data.results[i].incorrect_answers[0]);
+		  	wAnswer2.push(data.results[i].incorrect_answers[1]);
+		  	wAnswer3.push(data.results[i].incorrect_answers[2]);
+	  	}
+	  }
+	// Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+	</script>
+</head>
+<body>
+	<button>Start Game</button>
+
+	<p id='q0'></p>
+	<p id="rA0"></p>
+	<p id="wA10"></p>
+	<p id="wA20"></p>
+	<p id="wA30"></p> 
+
+	<p id='q1'></p>
+	<p id="rA1"></p>
+	<p id="wA11"></p>
+	<p id="wA21"></p>
+	<p id="wA31"></p>
+
+	<p id='q2'></p>
+	<p id="rA2"></p>
+	<p id="wA12"></p>
+	<p id="wA22"></p>
+	<p id="wA32"></p>
+
+	<p id='q3'></p>
+	<p id="rA3"></p>
+	<p id="wA13"></p>
+	<p id="wA23"></p>
+	<p id="wA33"></p>
+
+	<p id='q4'></p>
+	<p id="rA4"></p>
+	<p id="wA14"></p>
+	<p id="wA24"></p>
+	<p id="wA34"></p> 
+
+</body>
+</html>

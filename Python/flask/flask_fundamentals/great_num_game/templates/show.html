@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>The Great Number Game</title>
+	<style>
+	.guess{
+		height: 200px;
+		width: 200px;
+		{% if myGuess != myNumber %} 
+			background-color: red;
+		{% elif myGuess == myNumber %}
+			background-color: green;
+		{% endif %}
+		border: solid black 2px;
+		margin: auto;
+	}
+	.form-group{
+		margin-left: 590px;
+		width: 100px;
+	}
+	p{
+		margin-top: 80px;
+		margin-left: 67px;
+		color: white; 
+	}
+	.correct{
+		margin-top: 65px;
+		margin-left: 35px;
+		color: white; 
+	}
+	input{
+		margin-top: 10px;
+	}
+	#reset{
+		position: fixed;
+		margin-left: 29px;
+	}
+	.reset1{
+		width: 100px;
+		margin-left: 20px;
+	}
+	.sub{
+		box-shadow: 5px 5px;
+	}
+	#text{
+		color:black;
+		margin-top: 0px;
+	}
+	</style>
+</head>
+<body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymou;s"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<h1 class="row justify-content-center"> Welcome to the Great Number Game!</h1>
+
+<h3 class="row justify-content-center"> I am thinking of a number between 1 and 100 </h3>
+
+<h4 class="row justify-content-center"> Take a guess!</h3>
+
+<!-- ADD new submit box inside guess game if correct -->
+
+<div class = 'guess'>
+	{% if myGuess == myNumber %} 
+		<p class = 'correct'> {{myNumber}} was the number! </p>
+		<form action='/reset' method='post' class="row justify-content-center" id="reset">
+   			<div class ='reset1'>
+   				<input type='submit' value='Play Again!' class ='sub'>
+   			</div>
+		</form>
+	{% elif myGuess >= myNumber %}
+		<p> Too high! </p>
+	{% elif myGuess <= myNumber %}
+		<p> Too low! </p>
+	{% endif %}
+</div>
+
+{% if myGuess != myNumber %}
+<div class ='form-group'>
+<form action='/guess' method='post' class="row justify-content-center">
+   <input type='number' name='myGuess'>
+   <input type='submit' value='Submit' class='sub'>
+</form>
+{% endif %}
+</div>
+
+<p class="row justify-content-center" id="text"> You've guessed "X" amount of times</p> 
+
+</body>
+</html>
+

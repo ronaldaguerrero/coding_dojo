@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		form{
+			margin-bottom:8px;
+		}
+		div{
+			height: 500px;
+			width: 300px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		p{
+			display: inline-block;
+			margin-top: 0px;
+			margin-bottom: 7px;
+		}
+		select{
+			margin-left: 10px;
+		}
+		button{
+			margin-left: 175px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<body>
+	<h1>Index Page</h1>
+	<h3>Survey</h3>
+	<p id="message"></p>
+    <p id="number"></p>
+	<div>
+		<form id="form">
+			<p>Your Name: </p>
+			<input type='text' id='name'>
+			<p> Dojo Location: </p>
+			<select id='loclist'> 
+				<option value="BUR">Burbank</option>
+				<option value="LA">Los Angeles</option>
+				<option value="LB">Long Beach</option>
+				<option value="SF">San Francisco</option>
+				<option value="NY">New York</option>
+			</select>
+			<p> Favorite Language </p>
+			<select id='favelist'> 
+				<option value="py">Python</option>
+				<option value="js">JavaScript</option>
+				<option value="mean">Mean</option>
+				<option value="ja">Java</option>
+			</select>
+			<p> Comment (optional): </p>
+			<textarea rows="4" cols="40" id="comment"> </textarea>
+			<input type="submit" value="submit">
+		</form>
+	</div>
+	<script type ="text/javascript">
+        $(document).ready(function (){
+			 var socket = io.connect(); // 1 establish connection
+           // submit data to the server using emit
+           $('#form').submit(function(e) {  // 3 on submit, run function
+                   e.preventDefault();
+                   socket.emit("posting_form", { // 4 send form to server
+                   name: $('#name').val(),
+                   location: $('#loclist').val(),
+                   language: $('#favelist').val(),
+                   comment: $('#comment').val()
+               });
+     });
+     
+     socket.on('updated_message', function (data){ // 7, run this function
+         $('#message').html("You emitted the following information to the server: " + JSON.stringify(data.response));
+     });
+     socket.on('random_number', function (data){ // 8, fun this function
+        $('#number').html("Your lucky number emitted by the server is : " + JSON.stringify(data.response));
+     });
+       });
+    </script>
+</body>
+</html>

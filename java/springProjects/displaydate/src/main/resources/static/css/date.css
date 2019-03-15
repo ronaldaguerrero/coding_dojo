@@ -1,0 +1,15 @@
+body{
+	height: 1000px;
+	width: 800px;
+	display: inline-block;
+}
+h1 {
+	margin-left: 20%;
+	color: blue;
+}
+
+div{
+	height: 200px;
+	width: 800px;
+	display: inline-block;
+}

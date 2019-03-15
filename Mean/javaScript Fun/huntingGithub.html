@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hunting GitHub</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	  $("button").click(function(){
+	    document.getElementById("p").innerHTML=response;
+	    console.log(response);
+	  });
+	});
+	</script>
+
+	<script>
+
+	var response;
+	$.get("https://api.github.com/users/ronaldaguerrero", displayName)
+	// Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+	function displayName(data) {
+	  response = data.name;
+	}
+	</script>
+</head>
+<body>
+
+	<button>Click me</button>
+
+	<p id='p'></p>
+
+</body>
+</html>

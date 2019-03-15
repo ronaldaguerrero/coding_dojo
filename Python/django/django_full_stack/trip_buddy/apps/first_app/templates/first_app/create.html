@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>New Trip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  h3{
+    margin-left: -380px;
+  }
+  #logout{
+    margin-left: 990px;
+  }
+  form{
+      border-style: solid;
+      border-width: 5px;
+      width: 26%;
+      display: inline-block;
+      padding: 25px;
+      margin-left: 10px;
+  }
+  input{
+    position: fixed;
+    left: 215px;
+  }
+  #cancel{
+    position: fixed;
+    left: 285px;
+    top: 290px;
+  }
+  button{
+    margin-left: 360px;
+  }
+  </style>
+</head>
+<body>
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3>Hello {{ user.first_name }}! Create a trip!</h3>
+    </div>
+    <div class="col-sm">
+      <a href="logout" id='logout'>Logout</a>
+    </div>
+  </div>
+</div>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %} 
+
+<form action='/create_trip' method='POST'>
+  {% csrf_token %}
+  <div class="col">
+    <label>Destination:</label>
+    <input type="text" name="dest">
+  </div>
+  <div class="col">
+    <label>Start Date:</label>
+    <input type="date" name="start">
+  </div>
+  <div class="col">
+    <label>End Date:</label>
+    <input type="date" name="end">
+  </div>
+  <label for="desc">Plan</label>
+  <textarea class="col" name="plan" rows="3"></textarea>
+  <button type="create" class="btn btn-light">Submit
+  </button>
+</form>
+<a href="/dashboard" id='cancel'>Cancel</a>
+
+    
+</body>
+</html>

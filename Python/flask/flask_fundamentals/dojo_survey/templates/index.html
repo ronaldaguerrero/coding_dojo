@@ -1,0 +1,49 @@
+<style>
+form{
+	margin-bottom:8px;
+}
+div{
+	height: 500px;
+	width: 300px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+p{
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: 7px;
+}
+select{
+	margin-left: 10px;
+}
+button{
+	margin-left: 175px;
+}
+</style>
+
+<h1>Index Page</h1>
+<h3>Survey</h3>
+<div>
+<form action='/result' method='post'> 
+<p>Your Name: </p>
+<input type='text' name='name'>
+<p> Dojo Location: </p>
+<select name='loclist'> 
+	<option value="BUR">Burbank</option>
+	<option value="LA">Los Angeles</option>
+	<option value="LB">Long Beach</option>
+	<option value="SF">San Francisco</option>
+	<option value="NY">New York</option>
+</select>
+<p> Favorite Language </p>
+<select name='favelist'> 
+	<option value="py">Python</option>
+	<option value="js">JavaScript</option>
+	<option value="mean">Mean</option>
+	<option value="ja">Java</option>
+</select>
+<p> Comment (optional): </p>
+<textarea rows="4" cols="40" name="comment"> </textarea>
+<button>Button</button>
+</form>
+</div>
+

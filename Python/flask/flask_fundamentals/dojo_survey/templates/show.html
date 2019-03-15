@@ -1,0 +1,8 @@
+<h1>Show Page</h1>
+<h3>Submitted Info:</h3>
+    {% for user in user %}
+        <p>Name: {{ user["full_name"] }}</p>
+        <p>Dojo Location: {{ user["location"] }} </p>
+        <p>Favorite Language: {{ user["fave_language"] }}</p>
+        <p>Comment: {{ user["comment"] }}</p>
+    {% endfor %}

@@ -1,0 +1,15 @@
+Pip install Django #installs packages
+Pip list #lists installed packages
+Deactivate #deactivates virtenv
+
+on 2nd pip install, the terminal return the package was already installed
+
+Pip freeze #provides package version(s) required to run virtenv
+
+Pip freeze > requirements.txt #creates a requirement(s) document of package version details
+
+Pip uninstall #uninstalls package
+
+Pip show #displays package information
+
+Pip search #displays all pypl packages that contain keyword

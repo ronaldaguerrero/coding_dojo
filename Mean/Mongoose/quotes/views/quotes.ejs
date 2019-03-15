@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>All the Quotes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    a.button, #inputID {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+    padding: 8px;
+}
+    </style>
+</head>
+<body>
+    <!-- <%- JSON.stringify(messages) %>  -->
+    <!-- based on the structure of your messages, determine how to display them -->
+    <% if(messages.registration) { %>
+         <% for (var x of messages.registration) { %>
+          <h3><%= x %></h3>
+         <% } %>
+     <% } %>
+     
+    <form action="/quotes" method="POST">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label for="quote">Quote:</label>
+            <input type="text" name="quote">
+        </p>
+        <input type="submit" value="Add Quote" id="inputID">
+    </form>
+        <a href="/quotes" class="button">Skip to Quotes</a>
+</body>
+</html>

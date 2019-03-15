@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Playground</title>
+
+    <style>
+        body{
+            height: 1000px;
+            width: 1000px;
+        }
+        h2 {
+            margin-left: 375px;
+        } 
+        p {
+          height: 250px;
+          width: 250px;
+          margin-left: 20px;
+          background-color: {{ color }};
+          border: 5px solid black;
+          display: inline-block;
+        } 
+        </style>
+</head>
+<body>
+    <h2>Welcome!</h2>
+
+    {% for x in range(0,times): %}
+        <p></p>
+    {% endfor %}
+    
+
+    
+</body>
+</html>

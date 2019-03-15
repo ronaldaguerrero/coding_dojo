@@ -1,0 +1,16 @@
+Something went wrong 'DictCursor' object has no attribute 'modify'
+False
+
+# syntax error in mysqlconnection.py file, modify instead of mogrify
+
+Running Query: SELECT * FROM friend;
+Something went wrong (1146, "Table 'first_flask.friend' doesn't exist")
+False
+
+# syntax error table 'friend' does not exist
+
+
+(1049, "Unknown database 'flask'")
+
+# mysql = connectToMySQL('first_flask'), incorrect database file
+

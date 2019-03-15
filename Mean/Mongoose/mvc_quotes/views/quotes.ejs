@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>All the Quotes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>All Quotes</h1>
+    
+    <% for(var quote of quotes) { %>
+        <p><%= quote.name %>: <%= quote.quote %></p>
+    <% } %>
+
+    <form action="/quotes" method="POST">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label for="quote">Quote:</label>
+            <input type="text" name="quote">
+        </p>
+        <input type="submit" value="Add Quote">
+    </form>
+</body>
+</html>

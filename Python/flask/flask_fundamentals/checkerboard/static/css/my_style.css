@@ -1,0 +1,19 @@
+body{
+    height: 800px;
+    width: 1000px;
+}
+.c1 {
+    height: 50px;
+    width: 50px;
+    margin: 0px;
+    background-color: red;
+    border-radius: 0px;
+} 
+
+.c2 {
+    height: 50px;
+    width: 50px;
+    margin: 0px;
+    background-color: blue;
+    border-radius: 0px;
+} 

@@ -1,0 +1,28 @@
+#create users
+users.objects.create(first_name='Jeremy', last_name='Lin', email_address='JLin@gmail.com', age=30)
+users.objects.create(first_name='Michael', last_name='Jordan', email_address='MJordan@gmail.com', age=50)
+users.objects.create(first_name='Lebron', last_name='James', email_address='LJames@gmail.com', age=30)
+
+#retrieve all users
+users.objects.all()
+
+#retrieve the last user
+users.objects.last()
+
+#retrieve the first user
+users.objects.first()
+
+#change the user w/ id=3 so their last name is Pancakes
+c = users.objects.get(id=3)
+c.last_name='Pancakes'
+c.save
+
+#delete the user w/ id=2 from the DB
+c = users.objects.get(id=2)
+c.delete()
+
+#get all users, sorted by their first name
+users.objects.all().order_by('first_name')
+
+#get all users sorted by their first name in descending order
+users.objects.all().order_by('-first_name')

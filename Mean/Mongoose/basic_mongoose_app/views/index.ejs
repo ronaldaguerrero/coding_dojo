@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Form</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<!-- tip to easily see objects printed in full instead of [object Object] -->
+	<%- JSON.stringify(messages) %> 
+	<!-- based on the structure of your messages, determine how to display them -->
+	<% if(messages.registration) { %>
+	     <% for (var x of messages.registration) { %>
+	      <h3><%= x %></h3>
+	     <% } %>
+	 <% } %>
+	
+	 <% for(var user of users) { %>
+        <p><%= user.name %>: <%= user.age %></p>
+    <% } %>
+	<form action='/users' method='post'>
+		Name: <input type='text' name='name'>
+		Age: <input type='number' name='age'>
+		<button>Submit</button>
+	</form>
+</body>
+</html>

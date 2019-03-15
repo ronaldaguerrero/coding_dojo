@@ -1,0 +1,7 @@
+<!-- sample html form to create a new book -->
+<form action="/books/create" method="POST">
+	{% csrf_token %}
+	<p>Title: <input type="text" name='title'></p>
+	<p>Desc: <input type="text" name='desc'></p>
+	<input type='submit'>
+</form>

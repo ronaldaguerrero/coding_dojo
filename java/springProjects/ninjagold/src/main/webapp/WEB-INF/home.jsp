@@ -1,0 +1,108 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix= "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "form" uri = "http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %>
+<%@page import="java.util.ArrayList" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Ninja Gold</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <form class="form-inline">
+  <div class="form-group mb-2">
+    <label for="your_gold">Your Gold</label>
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="gold"></label>
+    <input type="number" readonly class="form-control" id="gold" placeholder="<c:out value="${gold}"/>">
+  </div>
+  </form>
+
+  <div class="row">
+    <form action="/process_money" method="POST">
+    
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Farm</h5>
+            <p class="card-text">(earns 10-20 golds)</p>
+            <input type="hidden" name="type" value="farm">
+            <input type="submit" class="btn btn-primary" value="Find Gold!">
+          </div>
+        </div>
+      </div>
+    </form>
+    <form action="/process_money" method="POST">
+    
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cave</h5>
+            <p class="card-text">(earns 5-10 golds)</p>
+            <input type="hidden" name="type" value="cave">
+            <input type="submit" class="btn btn-primary" value="Find Gold!">
+          </div>
+        </div>
+      </div>
+    </form>
+    <form action="/process_money" method="POST">
+    
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">House</h5>
+            <p class="card-text">(earns 2-5 golds)</p>
+            <input type="hidden" name="type" value="house">
+            <input type="submit" class="btn btn-primary" value="Find Gold!">
+          </div>
+        </div>
+      </div>
+    </form>
+    <form action="/process_money" method="POST">
+    
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Casino</h5>
+            <p class="card-text">(earns/takes 0-50 golds)</p>
+            <input type="hidden" name="type" value="casino">
+            <input type="submit" class="btn btn-primary" value="Find Gold!">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+<a href="/reset">Reset</a>
+
+<div class="form-group">
+  <label for="exampleTextarea">Activities:</label>
+  <fieldset class="form-control" style="height: 200px; overflow: scroll;">
+     <% if(session.getAttribute("activities") != null){ %>
+        		<% ArrayList<String> act = (ArrayList<String>) session.getAttribute("activities"); %>
+        		<% for(int i = 0; i < act.size(); i++) { %>
+        			<% if(act.get(i).startsWith("E")) { %>
+        				<li style = "color: green;"><%= act.get(i) %></li>
+        			<% } else { %>
+        				<li style = "color: red;"><%= act.get(i) %></li>
+        			<% } %>
+        		<% } %>
+        <% } %>
+    
+  </fieldset>
+</div>  
+    
+</body>
+</html>
