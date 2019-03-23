@@ -1,0 +1,16 @@
+<div *ngIf="error">
+    <h2>{{error}}</h2>
+</div>
+
+<h1>Create a new Restaurant</h1>
+<fieldset>
+	<form (submit)="createRest()">
+	    <!-- use the json pipe to see how newTask changes in real time -->
+	    <p><label for="name">Restaurant:</label>
+	    	<input type="text" name="name" [(ngModel)]="pair.name" /><p>
+	    <p><label for="url">Cuisine:</label>
+	    	<input type="text" name="cuisine" [(ngModel)]="pair.cuisine" />
+	    	<input type="submit" value="Submit" /><p>
+	</form>
+	<a [routerLink]= "['/restaurants']">Cancel</a>
+</fieldset>

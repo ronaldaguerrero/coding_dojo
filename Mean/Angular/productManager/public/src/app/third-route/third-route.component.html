@@ -1,0 +1,15 @@
+<div *ngIf="error">
+  	<h2>{{error}}</h2>
+</div>
+
+<form (submit)="createProduct()" style="border: 5px solid orange;">
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <p><label for="title">Title:</label>
+    	<input type="text" name="title" [(ngModel)]="productInfo.title" /><p>
+    <p><label for="price">Price:</label>
+    	<input type="number" name="price" [(ngModel)]="productInfo.price" /><p>
+    <p><label for="url">Image Url:</label>
+    	<input type="text" name="img" [(ngModel)]="productInfo.img" />
+    	<input type="submit" value="Submit" /><p>
+</form>
+

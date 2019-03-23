@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  	<h1>{{title}}</h1>
+  	<form (submit)="createCake()">
+	    <!-- use the json pipe to see how newTask changes in real time -->
+	    <p><label for="baker">Baker:</label>
+	    	<input type="text" name="baker" [(ngModel)]="pair.baker" /><p>
+	    <p><label for="url">Image Url:</label>
+	    	<input type="text" name="img" [(ngModel)]="pair.img" />
+	    	<input type="submit" value="Submit" /><p>
+	</form>
+
+  	<div style="border: 5px solid purple; overflow:scroll; height: 400px;">
+	  	<h2>All the cakes:</h2>
+		<div *ngFor="let x of cakes; let i = index;" style="border: 5px solid yellow; margin: 5px;">
+		   	<!-- <p>Index: {{i}}</p> -->
+		   	<p>{{x.baker}}</p>
+		   	<img [src]="x.img" (click)="info(i)">
+		   	<!-- <img [src]="x.img" (click)="cakeToShow(x._id)"> -->
+		   	<button (click)="deleteCake(x._id)"> Delete</button>
+		   	<form (submit)="createReview(x._id)">
+			    <!-- use the json pipe to see how newTask changes in real time -->
+			    <p> <select name="review.rating" [(ngModel)]="review.rating">
+					  	<option value="5">5 Stars</option>
+					  	<option value="4">4 Stars</option>
+					  	<option value="3">3 Stars</option>
+						<option value="2">2 Stars</option>
+					  	<option value="1">1 Stars</option>
+					</select>
+			    <p><input type="text" name="cmt" [(ngModel)]="review.cmt"/>
+			    	<input type="submit" value="Submit" /><p>
+			</form>
+		</div>
+	</div>
+
+<router-outlet></router-outlet>
+
+<div class="root" style="border: 5px solid green;">  <!-- tip: use css to place a border around your different components to better visualize them -->
+	<app-task *ngIf="cake" [info]="cake" [avgR]="avg"></app-task>
+     <!-- use the selector of the task component to nest it within the root component -->
+</div>

@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  	<h1>{{title}}</h1>
+  	<div style="border: 5px solid purple;">
+	  	<h2>All the tasks:</h2>
+	  	<button (click)="tasksOnClick()">Click to get all tasks</button>
+		<p>Title: - Desc: - Completed:</p>
+		<div *ngFor="let x of tasks">
+		   <p *ngIf="x.title">{{x.title}} - {{x.desc}} - <button (click)="taskToShow(x)">Show</button>
+		   	<!-- <button (click)="taskOnClick(x._id)" </button>--></p>
+		</div>
+	</div>
+
+
+	<div style="border: 5px solid yellow;">
+  		<h2>The chosen task:</h2>
+  		<p *ngFor="let x of task">{{x.title}} - {{x.desc}}</p>
+  	</div>
+</div>
+
+<router-outlet></router-outlet>
+
+<div class="root" style="border: 5px solid green;">  <!-- tip: use css to place a border around your different components to better visualize them -->
+    <h1>Welcome to {{ title }}!</h1>
+	<app-task *ngIf="thisTask" [taskToShow]="thisTask"></app-task>
+     <!-- use the selector of the task component to nest it within the root component -->
+</div>

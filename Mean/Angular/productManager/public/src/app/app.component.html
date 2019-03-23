@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  	<h1>{{title}}</h1>
+  	<p><a [routerLink]= "['/first-route']"> Home </a></p>
+  	<p><a [routerLink]= "['/second-route']"> Product List </a></p>
+  	<!-- <p><a [routerLink]= "['/first-route','new']"> Product Creation </a></p> -->
+  	<p><a [routerLink]= "['/third-route']"> Product Creation </a></p>
+  	<!-- <p><a [routerLink]= "['/fourth-route']"> Edit Route </a></p> -->
+</div>
+
+<router-outlet></router-outlet>
+
+<!-- <div class="root" style="border: 5px solid green;">  
+    <h1>Welcome to {{ title }}!</h1>
+	<app-task *ngIf="thisTask" [taskToShow]="thisTask"></app-task>
+</div>
+ -->

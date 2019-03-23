@@ -1,0 +1,24 @@
+<div *ngIf="error">
+    <h2>{{error}}</h2>
+</div>
+<fieldset>
+	<div *ngFor="let x of restaurant;">
+		<h3>Write a review for {{x.name}}</h3>
+		<form (submit)="createReview(x._id)">
+		    <p><label for="name">Name:</label>
+		    	<input type="text" name="name" [(ngModel)]="review.name"/></p>
+		    <p><label for="rating">Rating:</label>
+		    	<select name="review.rating" [(ngModel)]="review.rating">
+				  	<option value="5">5 Stars</option>
+				  	<option value="4">4 Stars</option>
+				  	<option value="3">3 Stars</option>
+					<option value="2">2 Stars</option>
+				  	<option value="1">1 Stars</option>
+				</select>
+		    <p><label for="cmt">Your review:</label>
+		    	<input type="text" name="cmt" [(ngModel)]="review.cmt"/>
+		    	<input type="submit" value="Submit" /><p>
+		</form>
+		<a [routerLink]= "['/restaurants', id]">Cancel</a>
+	</div>
+</fieldset>

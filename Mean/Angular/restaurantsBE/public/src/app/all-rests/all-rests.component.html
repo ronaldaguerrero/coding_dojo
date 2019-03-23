@@ -1,0 +1,12 @@
+<div style="border: 5px solid purple;">
+  	<a [routerLink]= "['/restaurants/new']">New Restaurant</a>
+  	<h2>All the Restaurants:</h2>
+	<div *ngFor="let x of restaurants; let i = index;">
+	   	<!-- <p>Index: {{i}}</p> -->
+	   	<p>{{x.name}} - {{x.cuisine}} | 
+	   	<a [routerLink]= "['/restaurants', x._id, 'edit']">Edit Restaurant</a> | 
+	   	<a [routerLink]= "['/restaurants', x._id]">Read Reviews</a> | 
+	   	<button (click)="deleteRest(x._id)"> Delete</button></p>
+
+	</div>
+</div>

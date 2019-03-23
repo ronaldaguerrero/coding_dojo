@@ -1,0 +1,9 @@
+<div style="border: 5px solid purple;">
+  	<h2>All the Restaurants:</h2>
+	<div *ngFor="let x of restaurants">
+		<img [src]="x.img" (click)="info(i)">
+	   	<p>{{x.name}} - {{x.cuisine}}</p>
+	   	<p><a [routerLink]= "['edit', x._id]"> Edit Route </a></p>
+	   	<button (click)="deleteRestaurant(x._id)"> Delete</button>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div *ngIf="error">
+  	<h2>{{error}}</h2>
+</div>
+
+<form (submit)="createRestaurant()" style="border: 5px solid orange;">
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <p><label for="title">Title:</label>
+    	<input type="text" name="title" [(ngModel)]="restaurantInfo.title" /><p>
+    <p><label for="price">Cuisine:</label>
+    	<input type="number" name="price" [(ngModel)]="restaurantInfo.cuisine" /><p>
+    	<input type="submit" value="Submit" /><p>
+</form>
+

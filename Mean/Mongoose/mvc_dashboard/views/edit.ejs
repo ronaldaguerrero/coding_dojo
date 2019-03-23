@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit</title>
+</head>
+<html>
+    <body>
+        <h1>Edit Dog <%=dog.name%></h1>
+        <form action="/update/<%=dog._id%>" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" value="<%=dog.name%>"></td>
+                </tr>
+                <br>
+                <tr>
+                    <td>Breed:</td>
+                    <td><input type="text" name="breed" value="<%=dog.breed%>"></td>
+                </tr>
+                <br>
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <form action="/dogs/destroy/<%=dog._id%>" method="post">
+            <input type="submit" value="Delete">
+        </form>          
+    </body>
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <span style="color: red">Something went wrong</span>
+        <p><%= errors%></p>
+        <% for (var x in errors) { %>
+            <h3><%= errors[x].messages %></h3>
+        <% } %>
+    <% } %>
+</html>

@@ -1,0 +1,9 @@
+<div style="border: 5px solid purple;">
+  	<h2>All the Products:</h2>
+	<div *ngFor="let x of products">
+		<img [src]="x.img" (click)="info(i)">
+	   	<p>{{x.title}} - {{x.price}}</p>
+	   	<p><a [routerLink]= "['edit', x._id]"> Edit Route </a></p>
+	   	<button (click)="deleteProduct(x._id)"> Delete</button>
+	</div>
+</div>

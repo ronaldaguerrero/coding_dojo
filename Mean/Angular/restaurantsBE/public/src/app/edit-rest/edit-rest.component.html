@@ -1,0 +1,21 @@
+<div *ngIf="error">
+    <h2>{{error}}</h2>
+</div>
+
+<fieldset>
+	<div *ngFor="let x of restaurant" style='border: solid 3px yellow;'>
+	    <h2>Edit a Restaurant:</h2>
+	    <form (submit)="editRest(x._id)">
+	        <p>
+	            <label for="name">Restaurant:</label>
+	            <input type="text" name="eRest.name" [(ngModel)]="eRest.name">
+	        </p>
+	        <p>
+	            <label for="cuisine">Cuisine:</label>
+	            <input type="text" name="eRest.cuisine" [(ngModel)]="eRest.cuisine">
+	        </p>
+	        <input type="submit" value="Update">
+	    </form>
+	    <a [routerLink]= "['/restaurants', id]">Cancel</a>
+	</div>
+</fieldset>

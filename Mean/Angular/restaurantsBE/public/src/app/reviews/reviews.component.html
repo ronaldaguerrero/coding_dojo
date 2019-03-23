@@ -1,0 +1,10 @@
+<fieldset>
+	<h1>Reviews for {{restaurant[0].name}}</h1>
+	<a [routerLink]= "['/restaurants', restaurant[0]._id, 'review']">New Review</a>
+	<div *ngFor="let x of ratings" style='border: solid 3px yellow;'>
+	    <h2>Reviews a Restaurant:</h2>
+        <p>Customer: {{x.name}}</p>
+        <p>Stars: {{x.rating}}</p>
+        <p>Description: {{x.cmt}}</p>
+	</div>
+</fieldset>

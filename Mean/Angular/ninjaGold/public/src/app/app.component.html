@@ -1,0 +1,53 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>Welcome to {{ title }}!</h1>
+  <h2>Total gold: {{this.gold}}</h2>
+
+<div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Farm</h5>
+            <p class="card-text">(earns 2-5 golds)</p>
+            <button (click)="farm()" class="btn btn-primary">Find Gold!</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cave</h5>
+            <p class="card-text">(earns 5-10 golds)</p>
+            <button (click)="cave()" class="btn btn-primary">Find Gold!</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">House</h5>
+            <p class="card-text">(earns 7-15 golds)</p>
+            <button (click)="house()" class="btn btn-primary">Find Gold!</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Casino</h5>
+            <p class="card-text">(earns/takes 0-100 golds)</p>
+            <button (click)="casino()" class="btn btn-primary">Find Gold!</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+<label for="exampleTextarea">Activities:</label>
+  <fieldset class="form-control" style="height: 200px; overflow: scroll;">
+    <div class="form-group" *ngFor="let x of log">
+      <p>{{ x }}</p>
+    </div>  
+  </fieldset>
+
+
+<router-outlet></router-outlet>
